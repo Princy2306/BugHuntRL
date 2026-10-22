@@ -27,3 +27,14 @@ env/
 
 # OS-generated files
 .DS_Store
+
+# Test and coverage artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Streamlit secrets
+.streamlit/secrets.toml
+
+# Temporary files
+*.tmp
