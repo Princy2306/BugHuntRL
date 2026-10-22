@@ -1,0 +1,29 @@
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Environment variables and secrets
+.env
+
+# Logs
+*.log
+
+# Model checkpoints and large generated files
+# Uncomment if you don't want to track these:
+# checkpoints/
+# models/
+# *.pth
+# *.pt
+# *.zip
+
+# OS-generated files
+.DS_Store
