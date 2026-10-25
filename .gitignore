@@ -20,7 +20,7 @@ env/
 # Model checkpoints and large generated files
 # Uncomment if you don't want to track these:
 # checkpoints/
-# models/
+models/
 # *.pth
 # *.pt
 # *.zip
