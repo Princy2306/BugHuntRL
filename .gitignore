@@ -19,11 +19,11 @@ env/
 
 # Model checkpoints and large generated files
 # Uncomment if you don't want to track these:
-# checkpoints/
-# models/
-# *.pth
-# *.pt
-# *.zip
+checkpoints/
+models/
+*.pth
+*.pt
+*.zip
 
 # OS-generated files
 .DS_Store

@@ -52,7 +52,21 @@ class BugHuntEnv(gym.Env):
         cost = costs[int(action)]
 
         if cost > self.remaining_budget:
-            raise ValueError("Insufficient budget for this action.")
+            # The selected strategy cannot be afforded.
+            # End the episode without executing the test.
+            observation = np.array([
+                self.remaining_budget,
+                self.coverage_fraction,
+                self.unique_bugs_found,
+                self.tests_executed,
+                (
+                    sum(self.recent_outcomes) / len(self.recent_outcomes)
+                    if self.recent_outcomes else 0.0
+                )
+            ], dtype=np.float32)
+
+            info = {"reason": "insufficient_budget", "action": int(action)}
+            return observation, 0.0, True, False, info
 
         # Simulate strategy-specific testing outcomes.
         # Each strategy has a different set of opportunities.
