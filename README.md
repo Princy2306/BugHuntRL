@@ -21,13 +21,23 @@ Instead of relying entirely on random testing, the agent learns to select testin
 4. **Reward:** The agent receives feedback based on new coverage, newly discovered bugs, and testing costs.
 5. **Learn:** The agent improves its decisions over repeated testing episodes.
 
+
 ## Reinforcement Learning Formulation
 
-- **State Space:** Testing progress, coverage, previous failures, input characteristics, and remaining budget.
-- **Action Space:** Selection of a testing strategy or exploration operation.
-- **Reward Function:** Rewards useful discoveries and penalizes redundant tests and excessive costs.
-- **Environment:** A controlled software-testing simulator with deliberately introduced bugs.
-- **Algorithm:** To be finalized based on the implemented environment and experiments.
+- **State Space:** A five-value observation containing remaining testing budget, coverage fraction, unique bugs found, tests executed, and recent test success rate.
+- **Action Space:** Four discrete testing strategies:
+  - `0` — Random testing (cost: 5 budget units)
+  - `1` — Boundary-value testing (cost: 8 budget units)
+  - `2` — Input mutation (cost: 6 budget units)
+  - `3` — Sequence generation (cost: 10 budget units)
+- **Reward Function:** `R = 10 × new_bugs + 5 × coverage_gain − 2 × redundant − 0.1 × cost`
+  - Rewards new bug discoveries and coverage gains.
+  - Penalizes tests that discover neither bugs nor coverage, and accounts for testing cost.
+- **Environment:** A Gymnasium-based simulator with a budget of 100 units and shared pools of 20 potential bugs and 20 coverage units.
+- **Algorithm:** Proximal Policy Optimization (PPO), implemented using Stable-Baselines3.
+- **Episode Termination:** An episode ends when the remaining budget falls below 5 units or the selected strategy cannot be afforded.
+- **Current Limitation:** Outcomes are simulated. Integration with the real testing pipeline and validation on actual software remain pending.
+
 
 ## Technology Stack
 
