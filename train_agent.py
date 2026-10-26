@@ -15,8 +15,8 @@ def main():
         verbose=1,
     )
 
-    model.learn(total_timesteps=100)
-    model.save("bughunt_ppo_initial")
+    model.learn(total_timesteps=5000)
+    model.save("bughunt_ppo_updated")
 
     print("Initial PPO checkpoint saved.")
 

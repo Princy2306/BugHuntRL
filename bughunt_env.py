@@ -70,28 +70,29 @@ class BugHuntEnv(gym.Env):
 
         # Simulate strategy-specific testing outcomes.
         # Each strategy has a different set of opportunities.
-        opportunities = {
-            0: {"bugs": [0, 1, 2, 3, 4],
-                "coverage": [0, 1, 2, 3, 4]},
-            1: {"bugs": [5, 6, 7, 8, 9],
-                "coverage": [5, 6, 7, 8, 9]},
-            2: {"bugs": [10, 11, 12, 13, 14],
-                "coverage": [10, 11, 12, 13, 14]},
-            3: {"bugs": [15, 16, 17, 18, 19],
-                "coverage": [15, 16, 17, 18, 19]},
-        }
+        # All strategies draw from the same pool of potential discoveries.
+        bug_pool = range(20)
+        coverage_pool = range(20)
 
-        candidates = opportunities[int(action)]
-
-        # Use the environment's seeded random generator.
         bug_candidates = [
-            bug for bug in candidates["bugs"]
-            if bug not in self.discovered_bugs
+        bug for bug in bug_pool
+        if bug not in self.discovered_bugs
         ]
         coverage_candidates = [
-            unit for unit in candidates["coverage"]
-            if unit not in self.covered_units
+        unit for unit in coverage_pool
+        if unit not in self.covered_units
         ]
+        
+
+        # Use the environment's seeded random generator.
+        # bug_candidates = [
+        #     bug for bug in candidates["bugs"]
+        #     if bug not in self.discovered_bugs
+        # ]
+        # coverage_candidates = [
+        #     unit for unit in candidates["coverage"]
+        #     if unit not in self.covered_units
+        # ]
 
         new_bugs = []
         new_coverage = []
