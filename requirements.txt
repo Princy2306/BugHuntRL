@@ -1,3 +1,9 @@
+
 gymnasium
 stable-baselines3
 numpy
+pytest
+coverage
+plotly
+pandas
+streamlit
