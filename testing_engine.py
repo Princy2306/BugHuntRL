@@ -119,12 +119,16 @@ class TestingEngine:
 
         executed_statements = statements - missing_statements
 
+        total_statement_lines = len(statements)
+        executed_statement_lines = sorted(executed_statements)
+
         coverage_percentage = (
-            100.0 * len(executed_statements) / len(statements)
-            if statements
+            100.0 * len(executed_statements) / total_statement_lines
+            if total_statement_lines
             else 100.0
         )
 
+        # Count target calls attempted by the strategy.
         target_calls = (
             sum(len(case) for case in cases)
             if strategy == 3
@@ -142,6 +146,10 @@ class TestingEngine:
             ),
             "budget_cost": cost,
             "coverage": round(coverage_percentage, 2),
+
+            # Added for cumulative coverage tracking in the RL environment.
+            "executed_statement_lines": executed_statement_lines,
+            "total_statement_lines": total_statement_lines,
         }
 
     def _generate_cases(self, strategy: int) -> list:
