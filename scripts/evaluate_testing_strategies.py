@@ -1,8 +1,8 @@
 
 import csv
 
-from testing_engine import TestingEngine
-from sample_app import sample_target
+from src.testing_engine import TestingEngine
+from src.sample_app import sample_target
 
 
 STRATEGIES = {
@@ -12,7 +12,7 @@ STRATEGIES = {
     3: "Sequence Generation",
 }
 
-RESULTS_FILE = "strategy_results.csv"
+RESULTS_FILE = "results/strategy_results.csv"
 RUNS_PER_STRATEGY = 20
 INITIAL_BUDGET = 100
 

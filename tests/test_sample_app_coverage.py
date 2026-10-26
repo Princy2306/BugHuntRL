@@ -1,12 +1,12 @@
 
 from coverage import Coverage
-from sample_app import sample_target
+from src.sample_app import sample_target
 
 
 def test_sample_app_coverage():
     cov = Coverage(
         branch=True,
-        source=["sample_app"],
+        source=["src.sample_app"],
         data_file=None,
     )
 

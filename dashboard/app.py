@@ -16,8 +16,8 @@ st.write(
     "and budget usage."
 )
 
-BASELINE_FILE = "strategy_results.csv"
-PPO_FILE = "ppo_evaluation_results.csv"
+BASELINE_FILE = "results/strategy_results.csv"
+PPO_FILE = "results/ppo_evaluation_results.csv"
 
 # Load baseline results
 try:

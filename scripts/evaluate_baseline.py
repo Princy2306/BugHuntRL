@@ -1,4 +1,4 @@
-from bughunt_env import BugHuntEnv
+from src.bughunt_env import BugHuntEnv
 
 for seed in range(5):
     env = BugHuntEnv()

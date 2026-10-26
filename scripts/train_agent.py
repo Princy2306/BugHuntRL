@@ -1,6 +1,6 @@
 
 from stable_baselines3 import PPO
-from bughunt_engine_env import BugHuntEngineEnv
+from src.bughunt_engine_env import BugHuntEngineEnv
 
 
 def main():
@@ -19,7 +19,7 @@ def main():
     model.learn(total_timesteps=5000)
 
     # Save to a new checkpoint to protect the existing model
-    model.save("bughunt_engine_ppo")
+    model.save("models/bughunt_engine_ppo")
 
     print("Engine-integrated PPO checkpoint saved.")
 

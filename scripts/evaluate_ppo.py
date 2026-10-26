@@ -2,13 +2,13 @@
 import csv
 
 from stable_baselines3 import PPO
-from bughunt_engine_env import BugHuntEngineEnv
+from src.bughunt_engine_env import BugHuntEngineEnv
 
 
-MODEL_PATH = "bughunt_engine_ppo"
+MODEL_PATH = "models/bughunt_engine_ppo"
 NUM_EPISODES = 20
 INITIAL_BUDGET = 100
-RESULTS_FILE = "ppo_evaluation_results.csv"
+RESULTS_FILE = "results/ppo_evaluation_results.csv"
 
 
 def main():

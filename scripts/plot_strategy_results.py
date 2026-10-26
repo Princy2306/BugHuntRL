@@ -4,7 +4,7 @@ import plotly.express as px
 
 
 # Load the evaluation results.
-df = pd.read_csv("strategy_results.csv")
+df = pd.read_csv("results/strategy_results.csv")
 
 # Calculate average metrics for each strategy.
 summary = (
@@ -13,7 +13,7 @@ summary = (
         average_bugs=("unique_bugs_found", "mean"),
         average_coverage=("coverage_percent", "mean"),
         average_time=("execution_time_seconds", "mean"),
-        execution_cost=("execution_cost", "mean"),
+        execution_cost=("budget_used", "mean"),
     )
 )
 
@@ -29,7 +29,7 @@ fig_bugs = px.bar(
     },
     text_auto=".2f",
 )
-fig_bugs.write_html("bugs_comparison.html")
+fig_bugs.write_html("results/bugs_comparison.html")
 
 # Graph 2: Average code coverage.
 fig_coverage = px.bar(
@@ -44,7 +44,7 @@ fig_coverage = px.bar(
     text_auto=".2f",
 )
 fig_coverage.update_yaxes(range=[0, 100])
-fig_coverage.write_html("coverage_comparison.html")
+fig_coverage.write_html("results/coverage_comparison.html")
 
 # Graph 3: Average execution time.
 fig_time = px.bar(
@@ -58,7 +58,7 @@ fig_time = px.bar(
     },
     text_auto=".4f",
 )
-fig_time.write_html("execution_time_comparison.html")
+fig_time.write_html("results/execution_time_comparison.html")
 
 # Print the summary for verification.
 print("\nStrategy comparison:")

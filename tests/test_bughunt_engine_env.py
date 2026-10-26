@@ -2,8 +2,8 @@
 import numpy as np
 
 
-from testing_engine import TestingEngine
-from bughunt_engine_env import BugHuntEngineEnv
+from src.testing_engine import TestingEngine
+from src.bughunt_engine_env import BugHuntEngineEnv
 
 
 def test_reset_returns_valid_observation():

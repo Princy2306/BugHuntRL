@@ -1,4 +1,4 @@
-from bughunt_env import BugHuntEnv
+from src.bughunt_env import BugHuntEnv
 
 env = BugHuntEnv()
 obs, _ = env.reset(seed=42)

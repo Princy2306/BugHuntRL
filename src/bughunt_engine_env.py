@@ -2,8 +2,8 @@
 import gymnasium as gym
 import numpy as np
 
-from sample_app import sample_target
-from testing_engine import TestingEngine
+from src.sample_app import sample_target
+from src.testing_engine import TestingEngine
 
 
 class BugHuntEngineEnv(gym.Env):

@@ -1,6 +1,6 @@
 
-from testing_engine import TestingEngine
-from sample_app import sample_target
+from src.testing_engine import TestingEngine
+from src.sample_app import sample_target
 
 import pytest
 
