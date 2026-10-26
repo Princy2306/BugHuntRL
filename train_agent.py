@@ -1,10 +1,11 @@
 
 from stable_baselines3 import PPO
-from bughunt_env import BugHuntEnv
+from bughunt_engine_env import BugHuntEngineEnv
 
 
 def main():
-    env = BugHuntEnv()
+    # Use the environment connected to the actual TestingEngine
+    env = BugHuntEngineEnv(seed=42)
 
     model = PPO(
         "MlpPolicy",
@@ -16,10 +17,15 @@ def main():
     )
 
     model.learn(total_timesteps=5000)
-    model.save("bughunt_ppo_updated")
 
-    print("Initial PPO checkpoint saved.")
+    # Save to a new checkpoint to protect the existing model
+    model.save("bughunt_engine_ppo")
+
+    print("Engine-integrated PPO checkpoint saved.")
+
+    env.close()
 
 
 if __name__ == "__main__":
     main()
+
